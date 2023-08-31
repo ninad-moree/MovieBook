@@ -17,7 +17,7 @@ class MovieModel extends MovieEntity {
   final String overview;
   final String posterPath;
   final double popularity;
-  final String mediaType;
+  // final String mediaType;
 
   const MovieModel({
     required this.id,
@@ -34,7 +34,7 @@ class MovieModel extends MovieEntity {
     required this.overview,
     required this.posterPath,
     required this.popularity,
-    required this.mediaType,
+    // required this.mediaType,
   }) : super(
           id: id,
           title: title,
@@ -61,7 +61,7 @@ class MovieModel extends MovieEntity {
       voteAverage: json['vote_average']?.toDouble() ?? 0.0,
       overview: json['overview'],
       releaseDate: json['release_date'],
-      mediaType: json['media_type'],
+      // mediaType: json['media_type'],
     );
   }
 
@@ -81,7 +81,7 @@ class MovieModel extends MovieEntity {
     data['overview'] = overview;
     data['poster_path'] = posterPath;
     data['popularity'] = popularity;
-    data['media_type'] = mediaType;
+    // data['media_type'] = mediaType;
     return data;
   }
 }

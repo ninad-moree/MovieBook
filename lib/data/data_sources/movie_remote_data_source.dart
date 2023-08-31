@@ -1,38 +1,51 @@
-import 'dart:convert';
 import 'dart:developer';
 
-import 'package:http/http.dart';
-import 'package:moviebook/data/core/api_constants.dart';
+import 'package:moviebook/data/core/api_client.dart';
 
 import 'package:moviebook/data/models/movie_model.dart';
 import 'package:moviebook/data/models/movies_result_model.dart';
 
 abstract class MovieRemoteDataResource {
   Future<List<MovieModel>> getTrending();
+  Future<List<MovieModel>> getPopular();
+  Future<List<MovieModel>> getPlayingNow();
+  Future<List<MovieModel>> getCommingSoon();
 }
 
 class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
-  final Client _client;
+  final ApiClient _client;
 
   MovieRemoteDataResourceImpl(this._client);
 
   @override
   Future<List<MovieModel>> getTrending() async {
-    final response = await _client.get(
-      Uri.parse(
-          '${ApiConstants.BASE_URL}trending/movie/day?api_key=${ApiConstants.API_KEY}'),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    );
+    final response = await _client.get('trending/movie/day');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    log(movies.toString());
+    return movies;
+  }
 
-    if (response.statusCode == 200) {
-      final responseBody = json.decode(response.body);
-      final movies = MoviesResultModel.fromJson(responseBody).movies;
-      log(movies.toString());
-      return movies;
-    } else {
-      throw Exception(response.reasonPhrase);
-    }
+  @override
+  Future<List<MovieModel>> getPopular() async {
+    final response = await _client.get('movie/popular');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    log(movies.toString());
+    return movies;
+  }
+
+  @override
+  Future<List<MovieModel>> getCommingSoon() async {
+    final response = await _client.get('movie/upcoming');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    log(movies.toString());
+    return movies;
+  }
+
+  @override
+  Future<List<MovieModel>> getPlayingNow() async {
+    final response = await _client.get('movie/now_playing');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    log(movies.toString());
+    return movies;
   }
 }
