@@ -1,4 +1,4 @@
-import 'package:moviebook/data/models/movie_model.dart';
+import 'movie_model.dart';
 
 class MoviesResultModel {
   late List<MovieModel> movies;

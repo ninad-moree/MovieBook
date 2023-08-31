@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:moviebook/data/core/api_client.dart';
+import '../core/api_client.dart';
 
-import 'package:moviebook/data/models/movie_model.dart';
-import 'package:moviebook/data/models/movies_result_model.dart';
+import '../models/movie_model.dart';
+import '../models/movies_result_model.dart';
 
 abstract class MovieRemoteDataResource {
   Future<List<MovieModel>> getTrending();
