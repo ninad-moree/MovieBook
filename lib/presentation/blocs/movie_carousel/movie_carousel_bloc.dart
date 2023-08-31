@@ -4,15 +4,18 @@ import 'package:equatable/equatable.dart';
 import 'package:moviebook/domain/entities/movie_entity.dart';
 import 'package:moviebook/domain/entities/no_params.dart';
 import 'package:moviebook/domain/usecases/get_trending.dart';
+import 'package:moviebook/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 
 part 'movie_carousel_event.dart';
 part 'movie_carousel_state.dart';
 
 class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
   final GetTrending getTrending;
+  final MovieBackdropBloc movieBackdropBloc;
 
   MovieCarouselBloc({
     required this.getTrending,
+    required this.movieBackdropBloc,
   }) : super(MovieCarouselInitial()) {
     on<CarouselLoadEvent>(_mapCarouselLoadEventToState);
   }
@@ -21,12 +24,18 @@ class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
       CarouselLoadEvent event, Emitter<MovieCarouselState> emit) async {
     final moviesEither = await getTrending(NoParams());
 
-    emit(moviesEither.fold(
-      (l) => MovieCarouselError(),
-      (movies) => MovieCarouselLoaded(
+    emit(moviesEither.fold((l) => MovieCarouselError(), (movies) {
+      movieBackdropBloc
+          .add(MovieBackDropChangedEvent(movies[event.defaultIndex]));
+      return MovieCarouselLoaded(
         movies: movies,
         defaultIndex: event.defaultIndex,
-      ),
-    ));
+      );
+    }
+        // (movies) => MovieCarouselLoaded(
+        //   movies: movies,
+        //   defaultIndex: event.defaultIndex,
+        // ),
+        ));
   }
 }

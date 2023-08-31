@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/domain/entities/movie_entity.dart';
-import 'package:moviebook/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviebook/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
+import '../../../../domain/entities/movie_entity.dart';
+import 'animated_movie_card_widget.dart';
 
 class MoviePageView extends StatefulWidget {
   final List<MovieEntity> movies;
@@ -44,14 +46,19 @@ class _MoviePageViewState extends State<MoviePageView> {
         controller: _pageController,
         itemBuilder: (context, index) {
           final MovieEntity movie = widget.movies[index];
-          return MovieCardWidget(
+          return AnimatedMovieCard(
+            index: index,
+            pageController: _pageController,
             movieId: movie.id,
             posterPath: movie.posterPath,
           );
         },
         pageSnapping: true,
         itemCount: widget.movies.length,
-        onPageChanged: (index) {},
+        onPageChanged: (index) {
+          BlocProvider.of<MovieBackdropBloc>(context)
+              .add(MovieBackDropChangedEvent(widget.movies[index]));
+        },
       ),
     );
   }

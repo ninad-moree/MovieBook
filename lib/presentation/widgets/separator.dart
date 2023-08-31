@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:moviebook/presentation/themes/app_color.dart';
+
+class Seperator extends StatelessWidget {
+  const Seperator({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 10,
+      width: 40,
+      padding: const EdgeInsets.only(top: 8, bottom: 16),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+        gradient: LinearGradient(
+          colors: [
+            AppColor.violet,
+            AppColor.royalBlue,
+          ],
+        ),
+      ),
+    );
+  }
+}
