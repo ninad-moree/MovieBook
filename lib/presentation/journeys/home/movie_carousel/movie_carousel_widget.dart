@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviebook/presentation/journeys/home/movie_carousel/movie_data_widget.dart';
+import 'package:moviebook/presentation/widgets/separator.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
 import '../../../widgets/movie_app_bar.dart';
@@ -30,6 +31,8 @@ class MovieCarouselWidget extends StatelessWidget {
               initialPage: defaultIndex,
             ),
             const MovieDataWidget(),
+            const SizedBox(height: 8),
+            const Seperator(),
           ],
         ),
       ],

@@ -15,10 +15,11 @@ class MovieDataWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           maxLines: 1,
           overflow: TextOverflow.fade,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
+          // style: const TextStyle(
+          //   color: Colors.white,
+          //   fontSize: 15,
+          // ),
         );
       }
       return const SizedBox.shrink();
