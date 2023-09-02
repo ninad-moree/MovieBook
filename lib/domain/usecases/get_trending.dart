@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:moviebook/domain/entities/app_error.dart';
-import 'package:moviebook/domain/entities/movie_entity.dart';
-import 'package:moviebook/domain/entities/no_params.dart';
-import 'package:moviebook/domain/repositories/movie_repository.dart';
-import 'package:moviebook/domain/usecases/usecase.dart';
+import '../entities/app_error.dart';
+import '../entities/movie_entity.dart';
+import '../entities/no_params.dart';
+import '../repositories/movie_repository.dart';
+import 'usecase.dart';
 
 class GetTrending extends Usecase<List<MovieEntity>, NoParams> {
   final MovieRepository repository;

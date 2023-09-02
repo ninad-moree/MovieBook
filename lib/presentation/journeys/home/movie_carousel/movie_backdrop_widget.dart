@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/data/core/api_constants.dart';
-import 'package:moviebook/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
+
+import '../../../../data/core/api_constants.dart';
+import '../../../blocs/movie_backdrop/movie_backdrop_bloc.dart';
 
 class MovieBackdropWidget extends StatelessWidget {
   const MovieBackdropWidget({super.key});

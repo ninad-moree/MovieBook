@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'app_color.dart';
+
 class ThemeText {
   const ThemeText._();
 
@@ -29,5 +31,12 @@ class ThemeText {
         titleLarge: _whiteHeadLine6,
         titleMedium: whiteSubtitle1,
         bodyMedium: whiteBodyText,
+      );
+}
+
+extension ThemeTextExtension on TextTheme {
+  TextStyle get royalBlueSubtitle1 => titleMedium!.copyWith(
+        color: AppColor.royalBlue,
+        fontWeight: FontWeight.w600,
       );
 }

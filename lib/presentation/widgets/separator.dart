@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/themes/app_color.dart';
+
+import '../themes/app_color.dart';
 
 class Seperator extends StatelessWidget {
   const Seperator({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
+
+import 'movie_card_widget.dart';
 
 class AnimatedMovieCard extends StatelessWidget {
   final int index;

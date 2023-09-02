@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import '../core/api_client.dart';
 
@@ -21,7 +21,7 @@ class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
   Future<List<MovieModel>> getTrending() async {
     final response = await _client.get('trending/movie/day');
     final movies = MoviesResultModel.fromJson(response).movies;
-    log(movies.toString());
+    // log(movies.toString());
     return movies;
   }
 
@@ -29,7 +29,7 @@ class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
   Future<List<MovieModel>> getPopular() async {
     final response = await _client.get('movie/popular');
     final movies = MoviesResultModel.fromJson(response).movies;
-    log(movies.toString());
+    // log(movies.toString());
     return movies;
   }
 
@@ -37,7 +37,7 @@ class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
   Future<List<MovieModel>> getCommingSoon() async {
     final response = await _client.get('movie/upcoming');
     final movies = MoviesResultModel.fromJson(response).movies;
-    log(movies.toString());
+    // log(movies.toString());
     return movies;
   }
 
@@ -45,7 +45,7 @@ class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
   Future<List<MovieModel>> getPlayingNow() async {
     final response = await _client.get('movie/now_playing');
     final movies = MoviesResultModel.fromJson(response).movies;
-    log(movies.toString());
+    // log(movies.toString());
     return movies;
   }
 }
