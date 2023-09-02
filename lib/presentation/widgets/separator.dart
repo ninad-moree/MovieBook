@@ -8,7 +8,7 @@ class Seperator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 10,
+      height: 8,
       width: 100,
       padding: const EdgeInsets.only(top: 8, bottom: 16),
       decoration: const BoxDecoration(

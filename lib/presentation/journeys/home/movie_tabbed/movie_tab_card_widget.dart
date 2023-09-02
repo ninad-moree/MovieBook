@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../common/extensions/string_extension.dart';
 import '../../../../data/core/api_constants.dart';
 
 class MovieTabCardWidget extends StatelessWidget {
@@ -33,7 +34,7 @@ class MovieTabCardWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              title,
+              title.intelliTrim(),
               maxLines: 1,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium,

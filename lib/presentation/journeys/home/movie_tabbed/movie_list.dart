@@ -14,12 +14,13 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: const EdgeInsets.only(top: 5),
       shrinkWrap: true,
       itemCount: movies.length,
       scrollDirection: Axis.horizontal,
       separatorBuilder: (context, index) {
         return const SizedBox(
-          width: 10,
+          width: 8,
         );
       },
       itemBuilder: (context, index) {
