@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/common/extensions/string_extension.dart';
+
+import '../../../../common/extensions/string_extension.dart';
 import '../../../themes/app_color.dart';
 import '../../../themes/text_theme.dart';
 

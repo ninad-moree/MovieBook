@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/common/constants/languages.dart';
-import 'package:moviebook/common/constants/translation_constants.dart';
-import 'package:moviebook/common/extensions/string_extension.dart';
-import 'package:moviebook/presentation/blocs/language_bloc/language_bloc_bloc.dart';
-import 'package:moviebook/presentation/journeys/drawer/navigation_expanded_list_tile.dart';
-import 'package:moviebook/presentation/journeys/drawer/navigation_list_item.dart';
-import 'package:moviebook/presentation/widgets/logo.dart';
+
+import '../../../common/constants/languages.dart';
+import '../../../common/constants/translation_constants.dart';
+import '../../../common/extensions/string_extension.dart';
+import '../../blocs/language_bloc/language_bloc_bloc.dart';
+import '../../widgets/logo.dart';
+import 'navigation_expanded_list_tile.dart';
+import 'navigation_list_item.dart';
 
 class NavigationDrawerHome extends StatelessWidget {
   const NavigationDrawerHome({super.key});

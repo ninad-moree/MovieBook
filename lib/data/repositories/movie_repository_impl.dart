@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
-import '../data_sources/movie_remote_data_source.dart';
-import '../models/movie_model.dart';
+
 import '../../domain/entities/app_error.dart';
 import '../../domain/entities/movie_entity.dart';
 import '../../domain/repositories/movie_repository.dart';
+import '../data_sources/movie_remote_data_source.dart';
+import '../models/movie_model.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
   final MovieRemoteDataResource remoteDataResource;

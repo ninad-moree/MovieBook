@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../di/get_it.dart';
-import 'blocs/language_bloc/language_bloc_bloc.dart';
 
 import '../common/constants/languages.dart';
+import '../di/get_it.dart';
 import 'app_localizations.dart';
+import 'blocs/language_bloc/language_bloc_bloc.dart';
 import 'journeys/home_screen.dart';
 import 'themes/app_color.dart';
 import 'themes/text_theme.dart';

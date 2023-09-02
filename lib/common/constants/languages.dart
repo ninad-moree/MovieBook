@@ -1,4 +1,4 @@
-import 'package:moviebook/domain/entities/language_entity.dart';
+import '../../domain/entities/language_entity.dart';
 
 class Languages {
   const Languages._();

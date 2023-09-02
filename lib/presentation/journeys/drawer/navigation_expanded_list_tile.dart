@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/journeys/drawer/navigation_list_item.dart';
-import 'package:moviebook/presentation/themes/app_color.dart';
+
+import '../../themes/app_color.dart';
+import 'navigation_list_item.dart';
 
 class NavigationExpandedListItem extends StatelessWidget {
   final String title;
