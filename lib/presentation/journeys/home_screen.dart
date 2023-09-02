@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../di/get_it.dart';
-import '../../blocs/movie_backdrop/movie_backdrop_bloc.dart';
-import '../../blocs/movie_carousel/movie_carousel_bloc.dart';
-import '../../blocs/movie_tabbed/movie_tabbed_bloc.dart';
-import 'movie_carousel/movie_carousel_widget.dart';
-import 'movie_tabbed/movie_tabbed_widget.dart';
+import '../../di/get_it.dart';
+import '../blocs/movie_backdrop/movie_backdrop_bloc.dart';
+import '../blocs/movie_carousel/movie_carousel_bloc.dart';
+import '../blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import 'drawer/navigation_drawer.dart';
+import 'home/movie_carousel/movie_carousel_widget.dart';
+import 'home/movie_tabbed/movie_tabbed_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         BlocProvider(create: (context) => movieTabbedBloc),
       ],
       child: Scaffold(
+        drawer: const NavigationDrawerHome(),
         body: BlocBuilder<MovieCarouselBloc, MovieCarouselState>(
           bloc: movieCarouselBloc,
           builder: (context, state) {
