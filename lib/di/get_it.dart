@@ -1,5 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:moviebook/domain/usecases/get_movie_detail.dart';
+import 'package:moviebook/presentation/blocs/movie_detail/moviedetail_bloc.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/movie_remote_data_source.dart';
@@ -34,6 +36,9 @@ Future init() async {
   getItInstance.registerLazySingleton<GetCommingSoon>(
       () => GetCommingSoon(getItInstance()));
 
+  getItInstance.registerLazySingleton<GetMovieDetail>(
+      () => GetMovieDetail(getItInstance()));
+
   getItInstance.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(getItInstance()));
 
@@ -48,9 +53,16 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => MovieTabbedBloc(
-        getPopular: GetPopular(getItInstance()),
-        getPlayingNow: GetPlayingNow(getItInstance()),
-        getComingSoon: GetCommingSoon(getItInstance())),
+      getPopular: getItInstance(),
+      getPlayingNow: getItInstance(),
+      getComingSoon: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => MoviedetailBloc(
+      getMovieDetail: getItInstance(),
+    ),
   );
 
   getItInstance.registerSingleton<LanguageBlocBloc>(LanguageBlocBloc());

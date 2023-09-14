@@ -26,14 +26,17 @@ class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
     final moviesEither = await getTrending(NoParams());
 
     emit(
-      moviesEither.fold((l) => MovieCarouselError(l.appErrorType), (movies) {
-        movieBackdropBloc
-            .add(MovieBackDropChangedEvent(movies[event.defaultIndex]));
-        return MovieCarouselLoaded(
-          movies: movies,
-          defaultIndex: event.defaultIndex,
-        );
-      }),
+      moviesEither.fold(
+        (l) => MovieCarouselError(l.appErrorType),
+        (movies) {
+          movieBackdropBloc
+              .add(MovieBackDropChangedEvent(movies[event.defaultIndex]));
+          return MovieCarouselLoaded(
+            movies: movies,
+            defaultIndex: event.defaultIndex,
+          );
+        },
+      ),
     );
   }
 }

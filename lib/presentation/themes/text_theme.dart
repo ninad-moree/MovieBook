@@ -52,4 +52,13 @@ extension ThemeTextExtension on TextTheme {
         color: AppColor.royalBlue,
         fontWeight: FontWeight.w600,
       );
+
+  TextStyle get greySubtitle1 => titleMedium!.copyWith(
+        color: Colors.grey,
+      );
+
+  TextStyle get violetHeadline6 => titleMedium!.copyWith(
+        color: AppColor.violet,
+        fontWeight: FontWeight.w600,
+      );
 }

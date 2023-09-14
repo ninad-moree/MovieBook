@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:moviebook/data/models/movie_detail_model.dart';
 
 import '../../domain/entities/app_error.dart';
 import '../../domain/entities/movie_entity.dart';
@@ -53,6 +54,18 @@ class MovieRepositoryImpl extends MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getPopular() async {
     try {
       final movies = await remoteDataResource.getPopular();
+      return Right(movies);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
+    } on Exception {
+      return const Left(AppError(AppErrorType.api));
+    }
+  }
+
+  @override
+  Future<Either<AppError, MovieDetailModel>> getMovieDetail(int id) async {
+    try {
+      final movies = await remoteDataResource.getMovieDetail(id);
       return Right(movies);
     } on SocketException {
       return const Left(AppError(AppErrorType.network));
