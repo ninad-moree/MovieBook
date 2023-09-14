@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/app_error.dart';
@@ -16,8 +18,10 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataResource.getTrending();
       return Right(movies);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
     } on Exception {
-      return const Left(AppError('Something went wrong'));
+      return const Left(AppError(AppErrorType.api));
     }
   }
 
@@ -26,8 +30,10 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataResource.getCommingSoon();
       return Right(movies);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
     } on Exception {
-      return const Left(AppError('Something went wrong'));
+      return const Left(AppError(AppErrorType.api));
     }
   }
 
@@ -36,8 +42,10 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataResource.getPlayingNow();
       return Right(movies);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
     } on Exception {
-      return const Left(AppError('Something went wrong'));
+      return const Left(AppError(AppErrorType.api));
     }
   }
 
@@ -46,8 +54,10 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await remoteDataResource.getPopular();
       return Right(movies);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
     } on Exception {
-      return const Left(AppError('Something went wrong'));
+      return const Left(AppError(AppErrorType.api));
     }
   }
 }

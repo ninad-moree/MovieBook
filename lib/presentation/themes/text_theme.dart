@@ -21,7 +21,7 @@ class ThemeText {
 
   static TextStyle get whiteSubtitle1 =>
       _poppinsTextTheme.titleMedium!.copyWith(
-        fontSize: 13,
+        fontSize: 17,
         color: Colors.white,
       );
 

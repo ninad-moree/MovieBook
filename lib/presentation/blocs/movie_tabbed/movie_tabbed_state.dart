@@ -24,6 +24,9 @@ class MovieTabChanged extends MovieTabbedState {
 }
 
 class MovieTabLoadError extends MovieTabbedState {
-  const MovieTabLoadError({required int currentTabIndex})
-      : super(currentTabIndex: currentTabIndex);
+  final AppErrorType errorType;
+  const MovieTabLoadError({
+    required int currentTabIndex,
+    required this.errorType,
+  }) : super(currentTabIndex: currentTabIndex);
 }
