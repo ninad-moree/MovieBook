@@ -5,5 +5,7 @@
     "about": "Acerca de",
     "popular": "Popular",
     "now": "Ahora",
-    "soon": "Pronto"
+    "soon": "Pronto",
+    "okay": "Bueno",
+    "aboutDescription": "Este producto utiliza TMDB Api pero no está respaldado ni certificado por TMDB. Esta aplicación está desarrollada únicamente con fines educativos."
 }

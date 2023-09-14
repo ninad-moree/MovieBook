@@ -5,5 +5,7 @@
     "about": "About",
     "popular": "Pouplar",
     "now": "Now",
-    "soon": "Soon"
+    "soon": "Soon",
+    "okay": "Okay",
+    "aboutDescription": "This product uses the TMDB Api but it not endorsed or certified bt TMDB. This app is developed for education purpose only."
 }
