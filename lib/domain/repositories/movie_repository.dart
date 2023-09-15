@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:moviebook/domain/entities/cast_entity.dart';
 import 'package:moviebook/domain/entities/movie_detail_entity.dart';
+import 'package:moviebook/domain/entities/video_entity.dart';
 
 import '../entities/app_error.dart';
 import '../entities/movie_entity.dart';
@@ -10,4 +12,6 @@ abstract class MovieRepository {
   Future<Either<AppError, List<MovieEntity>>> getPlayingNow();
   Future<Either<AppError, List<MovieEntity>>> getCommingsoon();
   Future<Either<AppError, MovieDetailEntity>> getMovieDetail(int id);
+  Future<Either<AppError, List<CastEntity>>> getCastCrew(int id);
+  Future<Either<AppError, List<VideoEntity>>> getVideos(int id);
 }

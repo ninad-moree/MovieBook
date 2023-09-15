@@ -11,5 +11,7 @@
     "somethingWentWrong": "Algo salió mal",
     "aboutDescription": "Este producto utiliza TMDB Api pero no está respaldado ni certificado por TMDB. Esta aplicación está desarrollada únicamente con fines educativos.",
     "checkNetwork": "Verifique su conexión de red y presione el botón de reintento o introdúzcalo como error presionando el botón de comentarios.",
-    "noMovies": "Lo siento, no hay peliculas en esta seccion."
+    "noMovies": "Lo siento, no hay peliculas en esta seccion.",
+    "cast": "Emitir",
+    "watchTrailers": "Ver Trailers"
 }

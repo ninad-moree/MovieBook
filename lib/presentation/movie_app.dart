@@ -6,7 +6,8 @@ import 'package:moviebook/presentation/wiredash_app.dart';
 import '../common/constants/languages.dart';
 import '../di/get_it.dart';
 import 'app_localizations.dart';
-import 'blocs/language_bloc/language_bloc_bloc.dart';
+
+import 'blocs/language/language_bloc_bloc.dart';
 import 'journeys/home_screen.dart';
 import 'themes/app_color.dart';
 import 'themes/text_theme.dart';

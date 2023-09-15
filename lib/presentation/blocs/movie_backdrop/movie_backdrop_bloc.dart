@@ -16,15 +16,3 @@ class MovieBackdropBloc extends Bloc<MovieBackdropEvent, MovieBackdropState> {
     emit(MovieBackDropChanged(event.movie));
   }
 }
-
-
-// class MovieBackdropBloc extends Bloc<MovieBackdropEvent, MovieBackdropState> {
-//   MovieBackdropBloc() : super(MovieBackdropInitial());
-
-//   @override
-//   Stream<MovieBackdropState> mapEventToState(
-//     MovieBackdropEvent event,
-//   ) async* {
-//     yield MovieBackDropChanged((event as MovieBackDropChangedEvent).movie);
-//   }
-// }

@@ -8,15 +8,21 @@ import 'package:moviebook/domain/entities/app_error.dart';
 import 'package:moviebook/domain/entities/movie_detail_entity.dart';
 import 'package:moviebook/domain/entities/movie_params.dart';
 import 'package:moviebook/domain/usecases/get_movie_detail.dart';
+import 'package:moviebook/presentation/blocs/cast/cast_bloc.dart';
+import 'package:moviebook/presentation/blocs/videos/videos_bloc.dart';
 
 part 'moviedetail_event.dart';
 part 'moviedetail_state.dart';
 
 class MoviedetailBloc extends Bloc<MoviedetailEvent, MoviedetailState> {
   final GetMovieDetail getMovieDetail;
+  final CastBloc castBloc;
+  final VideosBloc videosBloc;
 
   MoviedetailBloc({
     required this.getMovieDetail,
+    required this.castBloc,
+    required this.videosBloc,
   }) : super(MoviedetailInitial()) {
     on<MoviedetailLoadEvent>(_mapMovieDetailLoadEvent);
   }
@@ -33,6 +39,14 @@ class MoviedetailBloc extends Bloc<MoviedetailEvent, MoviedetailState> {
         (l) => MovieDetailError(),
         (r) => MovieDetailLoaded(r),
       ),
+    );
+
+    castBloc.add(
+      LoadCastEvent(movieId: event.movieId),
+    );
+
+    videosBloc.add(
+      LoadVideosEvent(movieId: event.movieId),
     );
   }
 }

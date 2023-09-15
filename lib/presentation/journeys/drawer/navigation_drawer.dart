@@ -6,7 +6,7 @@ import 'package:wiredash/wiredash.dart';
 import '../../../common/constants/languages.dart';
 import '../../../common/constants/translation_constants.dart';
 import '../../../common/extensions/string_extension.dart';
-import '../../blocs/language_bloc/language_bloc_bloc.dart';
+import '../../blocs/language/language_bloc_bloc.dart';
 import '../../widgets/logo.dart';
 import 'navigation_expanded_list_tile.dart';
 import 'navigation_list_item.dart';

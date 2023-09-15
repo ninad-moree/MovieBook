@@ -11,5 +11,7 @@
     "somethingWentWrong": "Something went wrong",
     "aboutDescription": "This product uses the TMDB Api but it not endorsed or certified bt TMDB. This app is developed for education purpose only.",
     "checkNetwork": "Please check your network connection and press retry button or put in as a bug by pressing feedback button.",
-    "noMovies": "Sorry no movies in this section"
+    "noMovies": "Sorry no movies in this section",
+    "cast": "Cast",
+    "watchTrailers": "Watch Trailers"
 }

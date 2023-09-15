@@ -61,4 +61,9 @@ extension ThemeTextExtension on TextTheme {
         color: AppColor.violet,
         fontWeight: FontWeight.w600,
       );
+
+  TextStyle get vulcanBodyText2 => bodyMedium!.copyWith(
+        color: AppColor.vulcan,
+        fontWeight: FontWeight.w600,
+      );
 }
