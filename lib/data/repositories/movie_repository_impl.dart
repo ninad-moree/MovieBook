@@ -4,12 +4,12 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/app_error.dart';
 import '../../domain/entities/movie_entity.dart';
-import '../../domain/entities/video_entity.dart';
 import '../../domain/repositories/movie_repository.dart';
 import '../data_sources/movie_remote_data_source.dart';
 import '../models/castcrew_data_model.dart';
 import '../models/movie_detail_model.dart';
 import '../models/movie_model.dart';
+import '../models/video_model.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
   final MovieRemoteDataResource remoteDataResource;
@@ -89,10 +89,23 @@ class MovieRepositoryImpl extends MovieRepository {
   }
 
   @override
-  Future<Either<AppError, List<VideoEntity>>> getVideos(int id) async {
+  Future<Either<AppError, List<VideoModel>>> getVideos(int id) async {
     try {
       final videos = await remoteDataResource.getVideos(id);
       return Right(videos);
+    } on SocketException {
+      return const Left(AppError(AppErrorType.network));
+    } on Exception {
+      return const Left(AppError(AppErrorType.api));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<MovieModel>>> getSearchedMovies(
+      String searchTerm) async {
+    try {
+      final movies = await remoteDataResource.getSearchMovies(searchTerm);
+      return Right(movies);
     } on SocketException {
       return const Left(AppError(AppErrorType.network));
     } on Exception {

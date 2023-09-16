@@ -7,14 +7,13 @@ import 'api_constants.dart';
 class ApiClient {
   final Client _client;
 
-  ApiClient(
-    this._client,
-  );
+  ApiClient(this._client);
 
-  dynamic get(String path) async {
+  dynamic get(String path, {Map<dynamic, dynamic>? params}) async {
+    final uri = Uri.parse(getPath(path, params));
+
     final response = await _client.get(
-      Uri.parse(
-          '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}'),
+      uri,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,5 +24,15 @@ class ApiClient {
     } else {
       throw Exception(response.reasonPhrase);
     }
+  }
+
+  String getPath(String path, Map<dynamic, dynamic>? params) {
+    var paramString = '';
+    if (params != null && params.isNotEmpty) {
+      params.forEach((key, value) {
+        paramString += '&$key=$value';
+      });
+    }
+    return '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}$paramString';
   }
 }
