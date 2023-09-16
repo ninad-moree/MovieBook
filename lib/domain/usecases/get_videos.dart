@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:moviebook/domain/entities/video_entity.dart';
 
 import '../entities/app_error.dart';
 import '../entities/movie_params.dart';
+import '../entities/video_entity.dart';
 import '../repositories/movie_repository.dart';
 import 'usecase.dart';
 

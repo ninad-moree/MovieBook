@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/common/constants/translation_constants.dart';
-import 'package:moviebook/common/extensions/string_extension.dart';
-import 'package:moviebook/presentation/widgets/button.dart';
 
+import '../../common/constants/translation_constants.dart';
+import '../../common/extensions/string_extension.dart';
 import '../themes/app_color.dart';
+import 'button.dart';
 
 class AppDialog extends StatelessWidget {
   final String title, description, buttonText;

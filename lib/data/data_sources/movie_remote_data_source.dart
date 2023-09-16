@@ -6,7 +6,6 @@ import 'package:moviebook/data/models/video_model.dart';
 import 'package:moviebook/data/models/video_result_model.dart';
 
 import '../core/api_client.dart';
-
 import '../models/movie_model.dart';
 import '../models/movies_result_model.dart';
 

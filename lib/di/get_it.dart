@@ -1,24 +1,24 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
-import 'package:moviebook/domain/usecases/get_cast_crew.dart';
-import 'package:moviebook/domain/usecases/get_movie_detail.dart';
-import 'package:moviebook/domain/usecases/get_videos.dart';
-import 'package:moviebook/presentation/blocs/cast/cast_bloc.dart';
-import 'package:moviebook/presentation/blocs/movie_detail/moviedetail_bloc.dart';
-import 'package:moviebook/presentation/blocs/videos/videos_bloc.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/movie_remote_data_source.dart';
 import '../data/repositories/movie_repository_impl.dart';
 import '../domain/repositories/movie_repository.dart';
+import '../domain/usecases/get_cast_crew.dart';
 import '../domain/usecases/get_commingsoon.dart';
+import '../domain/usecases/get_movie_detail.dart';
 import '../domain/usecases/get_playing_now.dart';
 import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_trending.dart';
+import '../domain/usecases/get_videos.dart';
+import '../presentation/blocs/cast/cast_bloc.dart';
 import '../presentation/blocs/language/language_bloc_bloc.dart';
 import '../presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import '../presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
+import '../presentation/blocs/movie_detail/moviedetail_bloc.dart';
 import '../presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
+import '../presentation/blocs/videos/videos_bloc.dart';
 
 final getItInstance = GetIt.I;
 

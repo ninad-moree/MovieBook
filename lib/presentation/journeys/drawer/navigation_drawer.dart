@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/presentation/widgets/app_dialog.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/languages.dart';
 import '../../../common/constants/translation_constants.dart';
 import '../../../common/extensions/string_extension.dart';
 import '../../blocs/language/language_bloc_bloc.dart';
+import '../../widgets/app_dialog.dart';
 import '../../widgets/logo.dart';
 import 'navigation_expanded_list_tile.dart';
 import 'navigation_list_item.dart';

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:moviebook/presentation/wiredash_app.dart';
 
 import '../common/constants/languages.dart';
 import '../di/get_it.dart';
 import 'app_localizations.dart';
-
 import 'blocs/language/language_bloc_bloc.dart';
 import 'journeys/home_screen.dart';
 import 'themes/app_color.dart';
 import 'themes/text_theme.dart';
+import 'wiredash_app.dart';
 
 class MovieApp extends StatefulWidget {
   const MovieApp({super.key});

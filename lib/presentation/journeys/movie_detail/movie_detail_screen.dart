@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/common/constants/translation_constants.dart';
-import 'package:moviebook/common/extensions/string_extension.dart';
-import 'package:moviebook/di/get_it.dart';
-import 'package:moviebook/presentation/blocs/cast/cast_bloc.dart';
-import 'package:moviebook/presentation/blocs/movie_detail/moviedetail_bloc.dart';
-import 'package:moviebook/presentation/blocs/videos/videos_bloc.dart';
-import 'package:moviebook/presentation/journeys/movie_detail/cast_widget.dart';
-import 'package:moviebook/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 
+import '../../../common/constants/translation_constants.dart';
+import '../../../common/extensions/string_extension.dart';
+import '../../../di/get_it.dart';
+import '../../blocs/cast/cast_bloc.dart';
+import '../../blocs/movie_detail/moviedetail_bloc.dart';
+import '../../blocs/videos/videos_bloc.dart';
 import 'big_poster.dart';
+import 'cast_widget.dart';
+import 'movie_detail_arguments.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final MovieDetailArguments movieDetailArguments;

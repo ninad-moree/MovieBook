@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/themes/app_color.dart';
 import 'package:wiredash/wiredash.dart';
+
+import 'themes/app_color.dart';
 
 class WiredashApp extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables

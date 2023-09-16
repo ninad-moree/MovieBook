@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/data/core/api_constants.dart';
-import 'package:moviebook/presentation/blocs/cast/cast_bloc.dart';
-import 'package:moviebook/presentation/themes/text_theme.dart';
+
+import '../../../data/core/api_constants.dart';
+import '../../blocs/cast/cast_bloc.dart';
+import '../../themes/text_theme.dart';
 
 class CastWidget extends StatelessWidget {
   const CastWidget({super.key});
