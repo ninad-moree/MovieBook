@@ -72,9 +72,7 @@ class CustomSearchDelegate extends SearchDelegate {
         if (state is SearchMovieError) {
           return AppErrorWidget(
             errorType: state.appErrorType,
-            onPressed: () => searchMovieBloc.add(
-              SearchTermChangedEvent(query),
-            ),
+            onPressed: () => searchMovieBloc.add(SearchTermChangedEvent(query)),
           );
         } else if (state is SearchMovieLoaded) {
           final movies = state.movies;
