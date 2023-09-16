@@ -44,7 +44,7 @@ dependencies:
   flutter_svg: ^2.0.7
   cached_network_image: ^3.2.3
   wiredash: ^1.7.4
-  youtube_player_flutter: ^8.1.2
+  # youtube_player_flutter: ^8.1.2
   # flutter_localization: ^0.1.13
   flutter_localizations:
     sdk: flutter

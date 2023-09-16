@@ -1,7 +1,7 @@
-import 'package:moviebook/domain/entities/video_entity.dart';
+// import 'package:moviebook/domain/entities/video_entity.dart';
 
-class WatchVideoArguments {
-  final List<VideoEntity> videos;
+// class WatchVideoArguments {
+//   final List<VideoEntity> videos;
 
-  WatchVideoArguments(this.videos);
-}
+//   WatchVideoArguments(this.videos);
+// }

@@ -10,7 +10,6 @@ import 'package:moviebook/presentation/journeys/movie_detail/cast_widget.dart';
 import 'package:moviebook/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 
 import 'big_poster.dart';
-import 'videos_widget.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final MovieDetailArguments movieDetailArguments;
@@ -93,7 +92,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       ),
                     ),
                     const CastWidget(),
-                    VideosWidget(videosBloc: _videosBloc),
+                    // VideosWidget(videosBloc: _videosBloc),
                   ],
                 ),
               );
