@@ -104,7 +104,7 @@ class MovieRepositoryImpl extends MovieRepository {
   Future<Either<AppError, List<MovieModel>>> getSearchedMovies(
       String searchTerm) async {
     try {
-      final movies = await remoteDataResource.getSearchMovies(searchTerm);
+      final movies = await remoteDataResource.getSearchedMovies(searchTerm);
       return Right(movies);
     } on SocketException {
       return const Left(AppError(AppErrorType.network));

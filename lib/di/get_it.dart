@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
-import 'package:moviebook/domain/usecases/get_search_movies.dart';
+import 'package:moviebook/domain/usecases/search_movies.dart';
 import 'package:moviebook/presentation/blocs/search_movie/search_movie_bloc.dart';
 
 import '../data/core/api_client.dart';

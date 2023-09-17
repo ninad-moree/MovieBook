@@ -28,8 +28,8 @@ class ApiClient {
 
   String getPath(String path, Map<dynamic, dynamic>? params) {
     var paramString = '';
-    if (params != null && params.isNotEmpty) {
-      params.forEach((key, value) {
+    if (params?.isNotEmpty ?? false) {
+      params!.forEach((key, value) {
         paramString += '&$key=$value';
       });
     }

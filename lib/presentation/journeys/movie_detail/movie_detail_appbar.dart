@@ -13,7 +13,7 @@ class MovieDetailAppbar extends StatelessWidget {
             Navigator.of(context).pop();
           },
           child: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back,
             color: Colors.white,
             size: 30,
           ),

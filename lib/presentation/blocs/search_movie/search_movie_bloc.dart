@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:moviebook/domain/entities/app_error.dart';
 import 'package:moviebook/domain/entities/movie_entity.dart';
 import 'package:moviebook/domain/entities/movie_search_params.dart';
-import 'package:moviebook/domain/usecases/get_search_movies.dart';
+import 'package:moviebook/domain/usecases/search_movies.dart';
 
 part 'search_movie_event.dart';
 part 'search_movie_state.dart';

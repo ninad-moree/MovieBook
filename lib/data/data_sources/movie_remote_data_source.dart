@@ -14,7 +14,7 @@ abstract class MovieRemoteDataResource {
   Future<List<MovieModel>> getPopular();
   Future<List<MovieModel>> getPlayingNow();
   Future<List<MovieModel>> getCommingSoon();
-  Future<List<MovieModel>> getSearchMovies(String searchTerm);
+  Future<List<MovieModel>> getSearchedMovies(String searchTerm);
   Future<MovieDetailModel> getMovieDetail(int id);
   Future<List<CastModel>> getCastCrew(int id);
   Future<List<VideoModel>> getVideos(int id);
@@ -80,9 +80,9 @@ class MovieRemoteDataResourceImpl extends MovieRemoteDataResource {
   }
 
   @override
-  Future<List<MovieModel>> getSearchMovies(String searchTerm) async {
+  Future<List<MovieModel>> getSearchedMovies(String searchTerm) async {
     final response = await _client.get(
-      'search.movie',
+      'search/movie',
       params: {
         'query': searchTerm,
       },
