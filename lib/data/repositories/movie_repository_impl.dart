@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:moviebook/data/data_sources/movie_local_data_source.dart';
+import 'package:moviebook/data/tables/movie_table.dart';
 
 import '../../domain/entities/app_error.dart';
 import '../../domain/entities/movie_entity.dart';
@@ -13,8 +15,12 @@ import '../models/video_model.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
   final MovieRemoteDataResource remoteDataResource;
+  final MovieLocalDataSource localDataSource;
 
-  MovieRepositoryImpl(this.remoteDataResource);
+  MovieRepositoryImpl(
+    this.remoteDataResource,
+    this.localDataSource,
+  );
 
   @override
   Future<Either<AppError, List<MovieModel>>> getTrending() async {
@@ -110,6 +116,48 @@ class MovieRepositoryImpl extends MovieRepository {
       return const Left(AppError(AppErrorType.network));
     } on Exception {
       return const Left(AppError(AppErrorType.api));
+    }
+  }
+
+  @override
+  Future<Either<AppError, bool>> checkIfMovieisFavorite(int movieId) async {
+    try {
+      final response = await localDataSource.checkIfMovieisFavorite(movieId);
+      return Right(response);
+    } on Exception {
+      return const Left(AppError(AppErrorType.database));
+    }
+  }
+
+  @override
+  Future<Either<AppError, void>> deleteFavoriteMovie(int movieId) async {
+    try {
+      final response = await localDataSource.deleteFavoriteMovie(movieId);
+      return Right(response);
+    } on Exception {
+      return const Left(AppError(AppErrorType.database));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<MovieEntity>>> getFavoriteMovies() async {
+    try {
+      final response = await localDataSource.getFavoriteMovies();
+      return Right(response);
+    } on Exception {
+      return const Left(AppError(AppErrorType.database));
+    }
+  }
+
+  @override
+  Future<Either<AppError, void>> saveMovie(MovieEntity movieEntity) async {
+    try {
+      final response = await localDataSource.saveMovie(
+        MovieTable.fromMovieEntity(movieEntity),
+      );
+      return Right(response);
+    } on Exception {
+      return const Left(AppError(AppErrorType.database));
     }
   }
 }

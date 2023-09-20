@@ -1,5 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:moviebook/data/data_sources/movie_local_data_source.dart';
+import 'package:moviebook/domain/usecases/chek_if_movie_is_favorite.dart';
+import 'package:moviebook/domain/usecases/delete_favorite_movie.dart';
+import 'package:moviebook/domain/usecases/get_favorite_movie.dart';
+import 'package:moviebook/domain/usecases/save_movie.dart';
 import 'package:moviebook/domain/usecases/search_movies.dart';
 import 'package:moviebook/presentation/blocs/search_movie/search_movie_bloc.dart';
 
@@ -25,40 +30,104 @@ import '../presentation/blocs/videos/videos_bloc.dart';
 final getItInstance = GetIt.I;
 
 Future init() async {
-  getItInstance.registerLazySingleton<Client>(() => Client());
+  getItInstance.registerLazySingleton<Client>(
+    () => Client(),
+  );
 
-  getItInstance
-      .registerLazySingleton<ApiClient>(() => ApiClient(getItInstance()));
+  getItInstance.registerLazySingleton<ApiClient>(
+    () => ApiClient(
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerLazySingleton<MovieRemoteDataResource>(
-      () => MovieRemoteDataResourceImpl(getItInstance()));
+    () => MovieRemoteDataResourceImpl(
+      getItInstance(),
+    ),
+  );
 
-  getItInstance
-      .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
+  getItInstance.registerLazySingleton<MovieLocalDataSource>(
+    () => MovieLocalDataSourceImpl(),
+  );
 
-  getItInstance
-      .registerLazySingleton<GetPopular>(() => GetPopular(getItInstance()));
+  getItInstance.registerLazySingleton<GetTrending>(
+    () => GetTrending(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<GetPopular>(
+    () => GetPopular(
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerLazySingleton<GetPlayingNow>(
-      () => GetPlayingNow(getItInstance()));
+    () => GetPlayingNow(
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerLazySingleton<GetCommingSoon>(
-      () => GetCommingSoon(getItInstance()));
+    () => GetCommingSoon(
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerLazySingleton<GetMovieDetail>(
-      () => GetMovieDetail(getItInstance()));
+    () => GetMovieDetail(
+      getItInstance(),
+    ),
+  );
 
-  getItInstance
-      .registerLazySingleton<GetCastCrew>(() => GetCastCrew(getItInstance()));
+  getItInstance.registerLazySingleton<GetCastCrew>(
+    () => GetCastCrew(
+      getItInstance(),
+    ),
+  );
 
-  getItInstance
-      .registerLazySingleton<SearchMovies>(() => SearchMovies(getItInstance()));
+  getItInstance.registerLazySingleton<SearchMovies>(
+    () => SearchMovies(
+      getItInstance(),
+    ),
+  );
 
-  getItInstance
-      .registerLazySingleton<GetVideos>(() => GetVideos(getItInstance()));
+  getItInstance.registerLazySingleton<GetVideos>(
+    () => GetVideos(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<SaveMovie>(
+    () => SaveMovie(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<GetFavoriteMovie>(
+    () => GetFavoriteMovie(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<DeleteFavoriteMovie>(
+    () => DeleteFavoriteMovie(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<CheckIfMovieIsFavorite>(
+    () => CheckIfMovieIsFavorite(
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerLazySingleton<MovieRepository>(
-      () => MovieRepositoryImpl(getItInstance()));
+    () => MovieRepositoryImpl(
+      getItInstance(),
+      getItInstance(),
+    ),
+  );
 
   getItInstance.registerFactory(
     () => MovieCarouselBloc(
@@ -67,7 +136,9 @@ Future init() async {
     ),
   );
 
-  getItInstance.registerFactory(() => MovieBackdropBloc());
+  getItInstance.registerFactory(
+    () => MovieBackdropBloc(),
+  );
 
   getItInstance.registerFactory(
     () => MovieTabbedBloc(
@@ -103,5 +174,7 @@ Future init() async {
     ),
   );
 
-  getItInstance.registerSingleton<LanguageBlocBloc>(LanguageBlocBloc());
+  getItInstance.registerSingleton<LanguageBlocBloc>(
+    LanguageBlocBloc(),
+  );
 }
