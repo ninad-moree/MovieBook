@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/common/constants/translation_constants.dart';
-import 'package:moviebook/common/extensions/string_extension.dart';
-import 'package:moviebook/di/get_it.dart';
-import 'package:moviebook/presentation/blocs/favorite/favorite_bloc.dart';
 
+import '../../../common/constants/translation_constants.dart';
+import '../../../common/extensions/string_extension.dart';
+import '../../../di/get_it.dart';
+import '../../blocs/favorite/favorite_bloc.dart';
 import '../../themes/app_color.dart';
 import 'favorite_movie_grid_view.dart';
 

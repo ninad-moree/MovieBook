@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/domain/entities/movie_detail_entity.dart';
-import 'package:moviebook/domain/entities/movie_entity.dart';
-import 'package:moviebook/presentation/blocs/favorite/favorite_bloc.dart';
+
+import '../../../domain/entities/movie_detail_entity.dart';
+import '../../../domain/entities/movie_entity.dart';
+import '../../blocs/favorite/favorite_bloc.dart';
 
 class MovieDetailAppbar extends StatelessWidget {
   final MovieDetailEntity movieDetailEntity;

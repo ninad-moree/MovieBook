@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/presentation/blocs/favorite/favorite_bloc.dart';
 
 import '../../../common/constants/translation_constants.dart';
 import '../../../common/extensions/string_extension.dart';
 import '../../../di/get_it.dart';
 import '../../blocs/cast/cast_bloc.dart';
+import '../../blocs/favorite/favorite_bloc.dart';
 import '../../blocs/movie_detail/moviedetail_bloc.dart';
 import '../../blocs/videos/videos_bloc.dart';
 import 'big_poster.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/domain/entities/movie_entity.dart';
 
+import '../../../domain/entities/movie_entity.dart';
 import 'favorite_movie_card_widget.dart';
 
 class FavoriteMovieGridWidget extends StatelessWidget {

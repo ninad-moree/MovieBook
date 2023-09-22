@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:moviebook/domain/entities/app_error.dart';
-import 'package:moviebook/domain/repositories/app_repository.dart';
-import 'package:moviebook/domain/usecases/usecase.dart';
+
+import '../entities/app_error.dart';
+import '../repositories/app_repository.dart';
+import 'usecase.dart';
 
 class UpdateLanguage extends Usecase<void, String> {
   final AppRepository appRepository;
