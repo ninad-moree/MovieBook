@@ -24,10 +24,10 @@ class MovieTable extends MovieEntity {
     required this.title,
     required this.posterPath,
   }) : super(
-            posterPath: '',
-            id: 0,
+            posterPath: posterPath,
+            id: id,
             backdropPath: '',
-            title: '',
+            title: title,
             voteAverage: 0,
             releaseDate: '',
             overview: '');

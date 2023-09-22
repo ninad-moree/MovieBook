@@ -53,11 +53,13 @@ class BigPoster extends StatelessWidget {
             ),
           ),
         ),
-        const Positioned(
+        Positioned(
           left: 10,
           right: 10,
           top: 30,
-          child: MovieDetailAppbar(),
+          child: MovieDetailAppbar(
+            movieDetailEntity: movie,
+          ),
         ),
       ],
     );

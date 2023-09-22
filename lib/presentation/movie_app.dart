@@ -26,6 +26,7 @@ class _MovieAppState extends State<MovieApp> {
   void initState() {
     super.initState();
     _languageBlocBloc = getItInstance<LanguageBlocBloc>();
+    _languageBlocBloc.add(LoadPreferredLanguageEvent());
   }
 
   @override

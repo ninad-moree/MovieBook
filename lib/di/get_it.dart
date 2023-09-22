@@ -1,11 +1,17 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:moviebook/data/data_sources/language_local_data_source.dart';
 import 'package:moviebook/data/data_sources/movie_local_data_source.dart';
+import 'package:moviebook/data/repositories/app_repository_impl.dart';
+import 'package:moviebook/domain/repositories/app_repository.dart';
 import 'package:moviebook/domain/usecases/chek_if_movie_is_favorite.dart';
 import 'package:moviebook/domain/usecases/delete_favorite_movie.dart';
 import 'package:moviebook/domain/usecases/get_favorite_movie.dart';
+import 'package:moviebook/domain/usecases/get_preferred_language.dart';
 import 'package:moviebook/domain/usecases/save_movie.dart';
 import 'package:moviebook/domain/usecases/search_movies.dart';
+import 'package:moviebook/domain/usecases/update_language.dart';
+import 'package:moviebook/presentation/blocs/favorite/favorite_bloc.dart';
 import 'package:moviebook/presentation/blocs/search_movie/search_movie_bloc.dart';
 
 import '../data/core/api_client.dart';
@@ -48,6 +54,10 @@ Future init() async {
 
   getItInstance.registerLazySingleton<MovieLocalDataSource>(
     () => MovieLocalDataSourceImpl(),
+  );
+
+  getItInstance.registerLazySingleton<LangaugeLocalDataSource>(
+    () => LanguageDataSourceImpl(),
   );
 
   getItInstance.registerLazySingleton<GetTrending>(
@@ -122,9 +132,27 @@ Future init() async {
     ),
   );
 
+  getItInstance.registerLazySingleton<UpdateLanguage>(
+    () => UpdateLanguage(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<GetPreferredLanguage>(
+    () => GetPreferredLanguage(
+      getItInstance(),
+    ),
+  );
+
   getItInstance.registerLazySingleton<MovieRepository>(
     () => MovieRepositoryImpl(
       getItInstance(),
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<AppRepository>(
+    () => AppMovieRepositoryImpl(
       getItInstance(),
     ),
   );
@@ -153,6 +181,7 @@ Future init() async {
       getMovieDetail: getItInstance(),
       castBloc: getItInstance(),
       videosBloc: getItInstance(),
+      favoriteBloc: getItInstance(),
     ),
   );
 
@@ -175,6 +204,18 @@ Future init() async {
   );
 
   getItInstance.registerSingleton<LanguageBlocBloc>(
-    LanguageBlocBloc(),
+    LanguageBlocBloc(
+      getPreferredLanguage: getItInstance(),
+      updateLanguage: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => FavoriteBloc(
+      checkIfMovieIsFavorite: getItInstance(),
+      deleteFavoriteMovie: getItInstance(),
+      getFavoriteMovie: getItInstance(),
+      saveMovie: getItInstance(),
+    ),
   );
 }

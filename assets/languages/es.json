@@ -14,5 +14,6 @@
     "noMovies": "Lo siento, no hay peliculas en esta seccion.",
     "cast": "Emitir",
     "watchTrailers": "Ver Trailers",
-    "noMoviesSearched": "¡¡¡No se encontraron películas!!!"
+    "noMoviesSearched": "¡¡¡No se encontraron películas!!!",
+    "noFavoriteMovies": "Sin pelicula favorita"
 }
