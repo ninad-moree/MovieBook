@@ -26,3 +26,7 @@ void main() async {
 
   runApp(const MovieApp());
 }
+
+// movie imdb
+// pwd = kaneki@18
+// username = Kaneki18_3
