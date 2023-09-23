@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:moviebook/common/constants/route_constants.dart';
+import 'package:moviebook/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 
 import '../../../../data/core/api_constants.dart';
-import '../../movie_detail/movie_detail_arguments.dart';
-import '../../movie_detail/movie_detail_screen.dart';
 
 class MovieCardWidget extends StatelessWidget {
   final int movieId;
@@ -22,12 +22,9 @@ class MovieCardWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => MovieDetailScreen(
-                movieDetailArguments: MovieDetailArguments(movieId),
-              ),
-            ),
+          Navigator.of(context).pushNamed(
+            RouteList.movieDetail,
+            arguments: MovieDetailArguments(movieId),
           );
         },
         child: ClipRRect(

@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../common/constants/languages.dart';
+import '../common/constants/route_constants.dart';
 import '../di/get_it.dart';
 import 'app_localizations.dart';
 import 'blocs/language/language_bloc_bloc.dart';
-import 'journeys/home_screen.dart';
+import 'fade_page_route_builder.dart';
+import 'routes.dart';
 import 'themes/app_color.dart';
 import 'themes/text_theme.dart';
 import 'wiredash_app.dart';
@@ -69,7 +71,21 @@ class _MovieAppState extends State<MovieApp> {
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate
                 ],
-                home: const HomeScreen(),
+                builder: (context, child) {
+                  return child!;
+                },
+                initialRoute: RouteList.initial,
+                onGenerateRoute: (RouteSettings setting) {
+                  final routes = Routes.getRoutes(setting);
+                  final WidgetBuilder? builder = routes[setting.name];
+                  if (builder != null) {
+                    return FadePageRouteBuilder(
+                      builder: builder,
+                      settings: setting,
+                    );
+                  }
+                  return null;
+                },
               ),
             );
           }
