@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/common/constants/route_constants.dart';
 
+import '../../../common/constants/route_constants.dart';
 import '../../../data/core/api_constants.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../blocs/favorite/favorite_bloc.dart';

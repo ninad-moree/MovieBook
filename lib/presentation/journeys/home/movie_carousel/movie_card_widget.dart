@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:moviebook/common/constants/route_constants.dart';
-import 'package:moviebook/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 
+import '../../../../common/constants/route_constants.dart';
 import '../../../../data/core/api_constants.dart';
+import '../../movie_detail/movie_detail_arguments.dart';
 
 class MovieCardWidget extends StatelessWidget {
   final int movieId;
