@@ -10,6 +10,10 @@ import 'journeys/movie_detail/movie_detail_screen.dart';
 class Routes {
   static Map<String, WidgetBuilder> getRoutes(RouteSettings settings) => {
         RouteList.initial: (context) => const LoginScreen(),
+        // RouteList.initial: (context) => LoadingScreen(
+        //       screen: LoginScreen(),
+        //     ),
+
         RouteList.home: (context) => const HomeScreen(),
         RouteList.movieDetail: (context) {
           final movieDetailArguents =

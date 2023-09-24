@@ -15,7 +15,7 @@ class AuthenticationLocalDataSourceImpl extends AuthenticationLocalDataSource {
 
   @override
   Future<void> deleteSessionId() async {
-    print('delete session-local');
+    // print('delete session-local');
     final authenticationBox = await Hive.openBox('authenticationBox');
     authenticationBox.delete('session_id');
   }

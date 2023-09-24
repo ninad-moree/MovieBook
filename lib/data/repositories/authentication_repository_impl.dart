@@ -65,7 +65,7 @@ class AuthenticaationRepositoryImpl extends AuthenticationRepository {
       _authenticationRemoteDataSource.deleteSession(sessionId!),
       _authenticationLocalDataSource.deleteSessionId(),
     ]);
-    print(await _authenticationLocalDataSource.getSessionId());
+    // print(await _authenticationLocalDataSource.getSessionId());
     // ignore: void_checks
     return const Right(Unit);
   }

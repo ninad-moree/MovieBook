@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
+import 'package:moviebook/presentation/blocs/loading/loading_bloc.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/authentication_local_data_source.dart';
@@ -195,6 +196,7 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => MovieCarouselBloc(
+      loadingBloc: getItInstance(),
       getTrending: getItInstance(),
       movieBackdropBloc: getItInstance(),
     ),
@@ -214,6 +216,7 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => MoviedetailBloc(
+      loadingBloc: getItInstance(),
       getMovieDetail: getItInstance(),
       castBloc: getItInstance(),
       videosBloc: getItInstance(),
@@ -235,6 +238,7 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => SearchMovieBloc(
+      loadingBloc: getItInstance(),
       searchMovies: getItInstance(),
     ),
   );
@@ -257,8 +261,13 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => LoginBloc(
+      loadingBloc: getItInstance(),
       loginUser: getItInstance(),
       logoutUser: getItInstance(),
     ),
+  );
+
+  getItInstance.registerFactory<LoadingBloc>(
+    () => LoadingBloc(),
   );
 }
