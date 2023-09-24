@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/themes/text_theme.dart';
+
+import '../../themes/text_theme.dart';
 
 class LabelFieldWidget extends StatelessWidget {
   final String label;

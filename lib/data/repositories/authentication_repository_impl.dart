@@ -30,11 +30,6 @@ class AuthenticaationRepositoryImpl extends AuthenticationRepository {
   }
 
   @override
-  Future<Either<AppError, void>> logOutUser() async {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<AppError, bool>> loginUser(Map<String, dynamic> params) async {
     final requestTokenEitherResponse = await _getRequestToken();
     final token1 = requestTokenEitherResponse.fold(
@@ -61,5 +56,17 @@ class AuthenticaationRepositoryImpl extends AuthenticationRepository {
     } on Exception {
       return const Left(AppError(AppErrorType.api));
     }
+  }
+
+  @override
+  Future<Either<AppError, void>> logoutUser() async {
+    final sessionId = await _authenticationLocalDataSource.getSessionId();
+    await Future.wait([
+      _authenticationRemoteDataSource.deleteSession(sessionId!),
+      _authenticationLocalDataSource.deleteSessionId(),
+    ]);
+    print(await _authenticationLocalDataSource.getSessionId());
+    // ignore: void_checks
+    return const Right(Unit);
   }
 }

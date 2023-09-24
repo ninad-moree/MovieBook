@@ -29,6 +29,7 @@ class MovieList extends StatelessWidget {
           movieId: movie.id,
           posterPath: movie.posterPath,
           title: movie.title,
+          // buildContext: context,
         );
       },
     );

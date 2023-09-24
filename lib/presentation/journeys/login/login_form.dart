@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/journeys/login/label_field_widget.dart';
-import 'package:moviebook/presentation/widgets/button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../common/constants/route_constants.dart';
+import '../../../common/constants/translation_constants.dart';
+import '../../../common/extensions/string_extension.dart';
+import '../../blocs/login/login_bloc.dart';
+import '../../themes/text_theme.dart';
+import '../../widgets/button.dart';
+import 'label_field_widget.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -36,8 +43,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    _userNameController.clear();
-    _passwordController.clear();
+    _userNameController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -55,8 +62,7 @@ class _LoginFormState extends State<LoginForm> {
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: Text(
-                // TranslationConstants.loginToMovieApp.t(context),
-                'Login to Movie App via TMDb',
+                TranslationConstants.loginToMovieApp.t(context),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       fontSize: 25,
@@ -64,19 +70,49 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             LabelFieldWidget(
-              label: 'Username',
-              hintText: 'Enter your TMDB username...',
+              label: TranslationConstants.username.t(context),
+              hintText: TranslationConstants.enterTMDbUsername.t(context),
               controller: _userNameController,
             ),
             LabelFieldWidget(
-              label: 'Password',
-              hintText: 'Enter your password',
+              // label: 'Password',
+              label: TranslationConstants.password.t(context),
+              hintText: TranslationConstants.enterPassword.t(context),
               controller: _passwordController,
               isPasswordField: true,
             ),
+            BlocConsumer<LoginBloc, LoginState>(
+              buildWhen: (previous, current) => current is LoginError,
+              builder: (context, state) {
+                if (state is LoginError) {
+                  return Text(
+                    state.message.t(context),
+                    style: Theme.of(context).textTheme.orangeSubtitle1,
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+              listenWhen: (previous, current) => current is LoginSuccess,
+              listener: (context, state) {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  RouteList.home,
+                  (route) => false,
+                );
+              },
+            ),
             Button(
-              text: 'Sign In',
-              onPressed: enableSignIn ? () {} : null,
+              text: TranslationConstants.signIn.t(context),
+              onPressed: enableSignIn
+                  ? () {
+                      // print('button pressed');
+                      BlocProvider.of<LoginBloc>(context).add(
+                        LoginInitiateEvent(
+                          _passwordController.text,
+                          _userNameController.text,
+                        ),
+                      );
+                    }
+                  : null,
               isEnabled: enableSignIn,
             ),
           ],

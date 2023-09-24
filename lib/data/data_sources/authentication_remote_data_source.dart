@@ -1,12 +1,13 @@
 import 'dart:developer';
 
-import 'package:moviebook/data/core/api_client.dart';
-import 'package:moviebook/data/models/request_token_model.dart';
+import '../core/api_client.dart';
+import '../models/request_token_model.dart';
 
 abstract class AuthenticationRemoteDataSource {
   Future<RequestTokenModel> getRequestToken();
   Future<RequestTokenModel> validateWithLogin(Map<String, dynamic> requestBody);
   Future<String> creatSession(Map<String, dynamic> requestBody);
+  Future<bool> deleteSession(String sessionId);
 }
 
 class AuthenticationRemoteDataSourceImpl
@@ -17,12 +18,28 @@ class AuthenticationRemoteDataSourceImpl
 
   @override
   Future<String> creatSession(Map<String, dynamic> requestBody) async {
-    final response = await _client.post(
-      'authentication/session/new',
-      params: requestBody,
-    );
-    log(response);
-    return response['success'] ? response['session_id'] : null;
+    // final response = await _client.post(
+    //   'authentication/session/new',
+    //   params: requestBody,
+    // );
+    // log(response);
+    // return response['success'] ? response['session_id'] : null;
+    try {
+      final response = await _client.post(
+        'authentication/session/new',
+        params: requestBody,
+      );
+      if (response['success'] == true) {
+        log('Session created successfully');
+        return response['session_id'].toString();
+      } else {
+        log('Session creation failed');
+        return 'Error';
+      }
+    } catch (e) {
+      log('Error creating session: $e');
+      return 'Error';
+    }
   }
 
   @override
@@ -40,7 +57,18 @@ class AuthenticationRemoteDataSourceImpl
       'authentication/token/validate_with_login',
       params: requestBody,
     );
-    log(response);
+    // log(response);
     return RequestTokenModel.fromJson(response);
+  }
+
+  @override
+  Future<bool> deleteSession(String sessionId) async {
+    final response = await _client.deleteWithBody(
+      'authentication/session',
+      params: {
+        'session_id': sessionId,
+      },
+    );
+    return response['success'] ?? false;
   }
 }

@@ -2,12 +2,16 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 
 import '../data/core/api_client.dart';
+import '../data/data_sources/authentication_local_data_source.dart';
+import '../data/data_sources/authentication_remote_data_source.dart';
 import '../data/data_sources/language_local_data_source.dart';
 import '../data/data_sources/movie_local_data_source.dart';
 import '../data/data_sources/movie_remote_data_source.dart';
 import '../data/repositories/app_repository_impl.dart';
+import '../data/repositories/authentication_repository_impl.dart';
 import '../data/repositories/movie_repository_impl.dart';
 import '../domain/repositories/app_repository.dart';
+import '../domain/repositories/authentication_repository.dart';
 import '../domain/repositories/movie_repository.dart';
 import '../domain/usecases/chek_if_movie_is_favorite.dart';
 import '../domain/usecases/delete_favorite_movie.dart';
@@ -20,12 +24,15 @@ import '../domain/usecases/get_popular.dart';
 import '../domain/usecases/get_preferred_language.dart';
 import '../domain/usecases/get_trending.dart';
 import '../domain/usecases/get_videos.dart';
+import '../domain/usecases/login_user.dart';
+import '../domain/usecases/logout_user.dart';
 import '../domain/usecases/save_movie.dart';
 import '../domain/usecases/search_movies.dart';
 import '../domain/usecases/update_language.dart';
 import '../presentation/blocs/cast/cast_bloc.dart';
 import '../presentation/blocs/favorite/favorite_bloc.dart';
 import '../presentation/blocs/language/language_bloc_bloc.dart';
+import '../presentation/blocs/login/login_bloc.dart';
 import '../presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import '../presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import '../presentation/blocs/movie_detail/moviedetail_bloc.dart';
@@ -58,6 +65,16 @@ Future init() async {
 
   getItInstance.registerLazySingleton<LangaugeLocalDataSource>(
     () => LanguageDataSourceImpl(),
+  );
+
+  getItInstance.registerLazySingleton<AuthenticationRemoteDataSource>(
+    () => AuthenticationRemoteDataSourceImpl(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<AuthenticationLocalDataSource>(
+    () => AuthenticationLocalDataSourceImpl(),
   );
 
   getItInstance.registerLazySingleton<GetTrending>(
@@ -144,6 +161,18 @@ Future init() async {
     ),
   );
 
+  getItInstance.registerLazySingleton<LoginUser>(
+    () => LoginUser(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<LogoutUser>(
+    () => LogoutUser(
+      getItInstance(),
+    ),
+  );
+
   getItInstance.registerLazySingleton<MovieRepository>(
     () => MovieRepositoryImpl(
       getItInstance(),
@@ -153,6 +182,13 @@ Future init() async {
 
   getItInstance.registerLazySingleton<AppRepository>(
     () => AppMovieRepositoryImpl(
+      getItInstance(),
+    ),
+  );
+
+  getItInstance.registerLazySingleton<AuthenticationRepository>(
+    () => AuthenticaationRepositoryImpl(
+      getItInstance(),
       getItInstance(),
     ),
   );
@@ -216,6 +252,13 @@ Future init() async {
       deleteFavoriteMovie: getItInstance(),
       getFavoriteMovie: getItInstance(),
       saveMovie: getItInstance(),
+    ),
+  );
+
+  getItInstance.registerFactory(
+    () => LoginBloc(
+      loginUser: getItInstance(),
+      logoutUser: getItInstance(),
     ),
   );
 }

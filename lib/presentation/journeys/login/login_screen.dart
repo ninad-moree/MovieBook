@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moviebook/presentation/journeys/login/login_form.dart';
-import 'package:moviebook/presentation/widgets/logo.dart';
+
+import '../../widgets/logo.dart';
+import 'login_form.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

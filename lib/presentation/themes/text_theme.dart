@@ -7,6 +7,7 @@ class ThemeText {
   const ThemeText._();
 
   static TextTheme get _poppinsTextTheme => GoogleFonts.poppinsTextTheme();
+
   static TextStyle get _whiteHeadLine6 =>
       _poppinsTextTheme.titleLarge!.copyWith(
         fontSize: 15,
@@ -69,5 +70,9 @@ extension ThemeTextExtension on TextTheme {
 
   TextStyle get greyCaption => bodySmall!.copyWith(
         color: Colors.grey,
+      );
+
+  TextStyle get orangeSubtitle1 => titleMedium!.copyWith(
+        color: Colors.orange,
       );
 }

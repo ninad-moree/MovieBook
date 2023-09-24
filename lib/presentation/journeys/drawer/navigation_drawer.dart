@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/common/constants/route_constants.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../../common/constants/languages.dart';
+import '../../../common/constants/route_constants.dart';
 import '../../../common/constants/translation_constants.dart';
 import '../../../common/extensions/string_extension.dart';
 import '../../blocs/language/language_bloc_bloc.dart';
+import '../../blocs/login/login_bloc.dart';
 import '../../widgets/app_dialog.dart';
 import '../../widgets/logo.dart';
 import 'navigation_expanded_list_tile.dart';
@@ -73,6 +74,21 @@ class NavigationDrawerHome extends StatelessWidget {
                 _showDialog(context);
               },
             ),
+            BlocListener<LoginBloc, LoginState>(
+              listenWhen: (previous, current) => current is LogoutSuccess,
+              listener: (context, state) {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  RouteList.initial,
+                  (route) => false,
+                );
+              },
+              child: NavigationListItem(
+                title: TranslationConstants.logout.t(context),
+                onPressed: () {
+                  BlocProvider.of<LoginBloc>(context).add(LogoutEvent());
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -80,6 +96,7 @@ class NavigationDrawerHome extends StatelessWidget {
   }
 
   void _showDialog(BuildContext context) {
+    // final stableContext = context;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -94,5 +111,10 @@ class NavigationDrawerHome extends StatelessWidget {
         );
       },
     );
+    // .then(
+    //   (_) {
+    //     Navigator.of(stableContext).pop();
+    //   },
+    // );
   }
 }
