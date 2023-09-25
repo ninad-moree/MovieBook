@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviebook/presentation/journeys/loading/loading_circle.dart';
 
 import '../../../../common/constants/translation_constants.dart';
 import '../../../../common/extensions/string_extension.dart';
@@ -80,6 +81,14 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
                       MovieTabChangedEVent(
                         currentTabIndex: state.currentTabIndex,
                       ),
+                    ),
+                  ),
+                ),
+              if (state is MovieTabLoading)
+                const Expanded(
+                  child: Center(
+                    child: LoadingCircle(
+                      size: 100,
                     ),
                   ),
                 ),
