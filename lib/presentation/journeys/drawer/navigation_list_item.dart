@@ -19,7 +19,7 @@ class NavigationListItem extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               blurRadius: 2,
-              color: Theme.of(context).primaryColor.withOpacity(0.7),
+              color: Theme.of(context).primaryColor.withOpacity(0.8),
             ),
           ],
         ),
