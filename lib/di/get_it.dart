@@ -1,6 +1,5 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
-import 'package:moviebook/presentation/blocs/loading/loading_bloc.dart';
 
 import '../data/core/api_client.dart';
 import '../data/data_sources/authentication_local_data_source.dart';
@@ -33,6 +32,7 @@ import '../domain/usecases/update_language.dart';
 import '../presentation/blocs/cast/cast_bloc.dart';
 import '../presentation/blocs/favorite/favorite_bloc.dart';
 import '../presentation/blocs/language/language_bloc_bloc.dart';
+import '../presentation/blocs/loading/loading_bloc.dart';
 import '../presentation/blocs/login/login_bloc.dart';
 import '../presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import '../presentation/blocs/movie_carousel/movie_carousel_bloc.dart';

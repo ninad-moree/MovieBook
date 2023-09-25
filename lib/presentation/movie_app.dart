@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:moviebook/presentation/blocs/loading/loading_bloc.dart';
-import 'package:moviebook/presentation/journeys/loading/loading_screen.dart';
 
 import '../common/constants/languages.dart';
 import '../common/constants/route_constants.dart';
 import '../di/get_it.dart';
 import 'app_localizations.dart';
 import 'blocs/language/language_bloc_bloc.dart';
+import 'blocs/loading/loading_bloc.dart';
 import 'blocs/login/login_bloc.dart';
 import 'fade_page_route_builder.dart';
+import 'journeys/loading/loading_screen.dart';
 import 'routes.dart';
 import 'themes/app_color.dart';
 import 'themes/text_theme.dart';

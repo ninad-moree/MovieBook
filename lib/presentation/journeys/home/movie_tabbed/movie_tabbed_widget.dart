@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/presentation/journeys/loading/loading_circle.dart';
 
 import '../../../../common/constants/translation_constants.dart';
 import '../../../../common/extensions/string_extension.dart';
 import '../../../blocs/movie_tabbed/movie_tabbed_bloc.dart';
 import '../../../widgets/app_error_widget.dart';
+import '../../loading/loading_circle.dart';
 import 'movie_list.dart';
 import 'movie_tabbed_constant.dart';
 import 'tab_title_widget.dart';

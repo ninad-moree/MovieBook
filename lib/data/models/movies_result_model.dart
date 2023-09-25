@@ -7,14 +7,12 @@ class MoviesResultModel {
 
   factory MoviesResultModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      // Handle the case where json is null (e.g., when there's no data)
       return MoviesResultModel(movies: []);
     }
 
     final List<dynamic>? results = json['results'] as List<dynamic>?;
 
     if (results == null) {
-      // Handle the case where the 'results' key is missing or not a list
       return MoviesResultModel(movies: []);
     }
 

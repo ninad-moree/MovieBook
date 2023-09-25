@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviebook/presentation/journeys/loading/loading_circle.dart';
 
 import '../../blocs/loading/loading_bloc.dart';
 import '../../themes/app_color.dart';
+import 'loading_circle.dart';
 
 class LoadingScreen extends StatelessWidget {
   final Widget screen;
