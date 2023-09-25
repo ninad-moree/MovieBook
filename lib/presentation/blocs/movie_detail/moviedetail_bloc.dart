@@ -59,6 +59,8 @@ class MoviedetailBloc extends Bloc<MoviedetailEvent, MoviedetailState> {
     videosBloc.add(
       LoadVideosEvent(movieId: event.movieId),
     );
-    loadingBloc.add(FinishedLoading());
+    loadingBloc.add(
+      FinishedLoading(),
+    );
   }
 }

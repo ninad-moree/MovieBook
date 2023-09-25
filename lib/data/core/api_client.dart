@@ -21,7 +21,7 @@ class ApiClient {
     );
 
     await Future.delayed(
-      const Duration(milliseconds: 5000),
+      const Duration(seconds: 5),
     );
 
     if (response.statusCode == 200) {

@@ -261,13 +261,13 @@ Future init() async {
 
   getItInstance.registerFactory(
     () => LoginBloc(
-      loadingBloc: getItInstance(),
       loginUser: getItInstance(),
       logoutUser: getItInstance(),
+      loadingBloc: getItInstance(),
     ),
   );
 
-  getItInstance.registerFactory<LoadingBloc>(
-    () => LoadingBloc(),
+  getItInstance.registerSingleton<LoadingBloc>(
+    LoadingBloc(),
   );
 }
