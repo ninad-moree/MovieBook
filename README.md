@@ -18,3 +18,21 @@ TMDB credentials or as a guest. Start your quest today and find your ideal movie
 • Search functionality to find any movie.
 
 • Integration with the TMDB API for movie data retrieval.
+
+## Project Screenshots
+
+<p>
+  <img src="assets/project-ss/LoginScreen.jpg" height="300"/>
+  <img src="assets/project-ss/HomeScreen.jpg" height="300"/>
+  <img src="assets/project-ss/MovieDetailScreen.jpg" height="300"/>
+</p>
+
+<p>
+  <img src="assets/project-ss/DrawerScreen.jpg" height="300"/>
+  <img src="assets/project-ss/FavoriteScreen.jpg" height="300"/>
+  <img src="assets/project-ss/SearchScreen.jpg" height="300"/>
+</p>
+
+<p>
+  <img src="assets/project-ss/FeedbackScreen.jpg" height="300"/>
+</p>
